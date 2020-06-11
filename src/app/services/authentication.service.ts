@@ -11,6 +11,11 @@ export class AuthenticationService {
   constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
   }
+  
+  authUser(): Observable<firebase.User>{
+    return this.user;
+  }
+
   login(email: string, password: string): Promise<firebase.auth.UserCredential>{
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
