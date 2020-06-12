@@ -3,4 +3,47 @@
         <i class="pi pi-list"></i>
         Requisições
     </a>
+    <button class="navbar-toggler" type="button"
+    aria-controls="navbarColor01" aria-expandade="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/admin/painel" href="#">
+                        <i class="pi pi-home"></i>
+                        Painel
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/admin/funcionario" href="#">
+                        <i class="pi pi-id-card"></i>
+                        Funcionários
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/admin/requisicao" href="#">
+                        <i class="pi pi-inbox"></i>
+                        Requisições
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/admin/departamento" href="#">
+                        <i class="pi pi-sitemap"></i>   
+                        Departamentos
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a href="#" (click)="sair()" class="nav-link">
+                <i class="pi pi-sign-out"></i>
+                    SAIR
+                </a>
+                </li>
+            </ul>
+        </div>
 </nav>

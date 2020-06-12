@@ -10,6 +10,7 @@ import { AuthenticationService } from '../../../services/authentication.service'
 })
 export class MenuComponent implements OnInit {
   user: Observable<firebase.User>;
+  navbarOpen = false;
   constructor(private authServ: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,6 +18,9 @@ export class MenuComponent implements OnInit {
   }
   sair () {
     this.authServ.logout().then(() => this.router.navigate(['/']));
+  }
+  toggleNavbar(){
+    this.navbarOpen = !this.navbarOpen;
   }
 
 }
