@@ -66,10 +66,12 @@ export class DepartamentoComponent implements OnInit {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Não'
     }).then((result) => {
+      if (result.value){
       this.departamentoService.delete(depto.id)
         .then(()=> {
-          Swal.fire('Departamento excluído com sucessi!','','success')
+          Swal.fire('Departamento excluído com sucesso!','','success')
         })
+      }
     })
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 
 
@@ -15,7 +15,8 @@ import { PrimeNGModule } from '../prime-ng/prime-ng.module';
   exports: [ 
     CommonModule,
     FormsModule,
-    PrimeNGModule
+    PrimeNGModule,
+    ReactiveFormsModule
   ]
 })
 export class ComumModule { }
