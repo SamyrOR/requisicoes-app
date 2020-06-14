@@ -92,8 +92,7 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -122,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "requisicoes-app"
+    }
+  },
+  "defaultProject": "requisicoes-app",
+  "cli": {
+    "analytics": "1576117a-0a10-4e4c-a2a2-4d7aa5bfcf32"
+  }
 }
