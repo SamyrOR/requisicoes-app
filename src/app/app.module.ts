@@ -14,14 +14,12 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './components/public/login/login.component';
 import { MenuComponent } from './components/admin/menu/menu.component';
-import { FilterDepartamentoPipe } from './pipes/filter-departamento.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MenuComponent,
-    FilterDepartamentoPipe,
   ],
   imports: [
     BrowserModule,
