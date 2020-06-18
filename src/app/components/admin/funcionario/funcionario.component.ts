@@ -95,21 +95,5 @@ export class FuncionarioComponent implements OnInit {
     })
   }
 
-  async upload(event){
-    this.complete = false;
-    const file = event.target.files[0];
-    const path = `funcionarios/${new Date().getTime().toString()}`;
-    const fileRef = this.storage.ref(path);
-    this.task.then(up => {
-      fileRef.getDownloadURL().subscribe(url => {
-        this.complete = true;
-        this.form.patchValue({
-          foto: url
-        })
-      })
-    })
-    this.uploadPercent = this.task.percentageChanges();
-    this.inputFile.nativeElement.value = '';
-  }
 
 }

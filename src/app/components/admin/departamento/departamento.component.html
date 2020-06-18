@@ -2,7 +2,7 @@
     <div class="card col-lg-12 bg-ligh col-centered">
         <div class="card-header">
             <h3>Departamenos
-                <button type="button" style="margin-right: 0px; border-radius: 45%;" (click)="add()" class="text-right btn btn-outline-info btn-lg">
+                <button type="button" style="margin-right: 0px;" (click)="add()" class="text-right btn btn-outline-info btn-lg">
                     <i class="pi pi-plus-circle" aria-hidden="true"></i>
                 </button>
             </h3>
@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<p-dialog header="Dados do departamento" [style]="{width:'50vw'}" [contentStyle]="{'overflow':'visible'}"
+<p-dialog header="Dados do departamento" [style]="{width:'25vw'}" [contentStyle]="{'overflow':'visible'}"
         [(visible)]="displayDialogDepartamento" [modal]="true">
             <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
                 <form [formGroup]="form">
@@ -50,13 +50,13 @@
                         <div class="ui-grid-col-8">
                             <input type="text" pInputText formControlName="nome">
                         </div>
-                        <div class="ui-grid-row mb-3">
-                            <div class="ui-grid-col-4">
-                                <label for="ocorrencia">Telefone:</label>
-                            </div>
-                            <div class="ui-grid-col-8">
-                                <p-inputMask formControlName="telefone" mask="(99)9999-9999"></p-inputMask>
-                            </div>
+                    </div>
+                    <div class="ui-grid-row mb-3">
+                        <div class="ui-grid-col-4">
+                            <label for="ocorrencia">Telefone:</label>
+                        </div>
+                        <div class="ui-grid-col-8">
+                            <p-inputMask formControlName="telefone" mask="(99)9999-9999"></p-inputMask>
                         </div>
                     </div>
                 </form>

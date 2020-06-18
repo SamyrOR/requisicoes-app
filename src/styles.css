@@ -4,7 +4,6 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
- @import '~primeicons/primeicons.css';
  @import '~@ng-select/ng-select/themes/default.theme.css';
  :root {
     --blue: #007bff;
