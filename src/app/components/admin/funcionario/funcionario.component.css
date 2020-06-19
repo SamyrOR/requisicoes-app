@@ -11,3 +11,6 @@
 .btn {
     margin: 5px;
 }
+.ng-invalid:not(form){
+    background-color: rgb(235, 185, 185);
+}

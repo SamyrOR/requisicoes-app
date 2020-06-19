@@ -48,3 +48,55 @@
         </div>
     </div>
 </div>
+
+<p-dialog header="Dados do funcionário" [style]="{width:'30vw'}" [contentStyle]="{'overflow' : 'visible'}" [(visible)]="displayDialogFuncionario"
+ [modal]="true" [draggable]="false">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
+        <form [formGroup]="form">
+            <div class="ui-grid-row mb-3">
+                <div class="ui-grid-col-4">
+                    <label for="ocorrencia">Nome*:</label>
+                </div>
+                <div class="ui-grid-col-8">
+                    <input type="text" pInputText formControlName="nome">
+                </div>
+            </div>
+            <div class="ui-grid-row mb-3">
+                <div class="ui-grid-col-4">
+                    <label for="ocorrencia">Email*:</label>
+                </div>
+                <div class="ui-grid-col-8">
+                    <input type="text" pInputText formControlName="email">
+                </div>
+            </div>
+            <div class="ui-grid-row mb-3">
+                <div class="ui-grid-col-4">
+                    <label for="ocorrencia">Departamento*:</label>
+                </div>
+                <div class="ui-grid-col-8">
+                    <ng-select [items]="departamentos$ | async" bindLabel="nome" formControlName="departamento"></ng-select>
+                </div>
+            </div>
+            <div class="ui-grid-row mb-3">
+                <div class="ui-grid-col-4">
+                    <label for="ocorrencia">Função:</label>
+                </div>
+                <div class="ui-grid-col-8">
+                    <input type="text" pInputText formControlName="funcao">
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-footer>
+        <div *ngIf="form.controls['nome'].errors || form.controls['email'].errors || form.controls['departamento'].errors"
+        class="text-warning text-left">
+            *Preenchimento Obrigatório
+        </div>
+        <div class="ui-dialog-buttonpane">
+            <button [disabled]="!form.valid" type="button" class="btn btn-primary" (click)="save()">
+                <i class="pi pi-check-circle"></i>
+                {{edit ? 'Atualizar' : 'Salvar'}}
+            </button>
+        </div>
+    </p-footer>
+</p-dialog>
