@@ -13,6 +13,8 @@ const routes: Routes = [
     .then(m => m.DepartamentoModule), canActivate: [AuthguardService] },
   { path: 'admin/funcionario', loadChildren: () => import('./components/admin/funcionario/funcionario.module')
     .then(m => m.FuncionarioModule), canActivate: [AuthguardService]},
+  { path: 'admin/requisicao', loadChildren: () => import('./components/admin/requisicao/requisicao.module')
+    .then(m => m.RequisicaoModule), canActivate: [AuthguardService]}
 ];
 
 @NgModule({
