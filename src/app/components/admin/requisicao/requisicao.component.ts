@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators'
 import { Observable, pipe } from 'rxjs';
@@ -36,7 +36,7 @@ export class RequisicaoComponent implements OnInit {
   ngOnInit(): void {
     this.departamentos$ = this.departamentoService.list();
     this.configForm();
-    this.recuperaFuncionario()
+    this.recuperaFuncionario();
   }
 
   async recuperaFuncionario() {
@@ -46,12 +46,13 @@ export class RequisicaoComponent implements OnInit {
       .subscribe(funcionarios => {
         this.funcionarioLogado = funcionarios[0];
         this.requisicoes$ = this.requisicaoService.list()
-        pipe(
+        .pipe(
           map((reqs: Requisicao[]) => reqs.filter(r => r.solicitante.email === this.funcionarioLogado.email))
         )
       })
     })
   }
+  
 
   configForm () {
     this.form = this.fb.group({
@@ -118,4 +119,7 @@ export class RequisicaoComponent implements OnInit {
     this.form.setValue(requisicao)
   }
 
+ 
+
 }
+
