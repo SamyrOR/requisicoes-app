@@ -87,7 +87,7 @@ export class MovimentacaoComponent implements OnInit {
     this.requisicaoService.createOrUpdate(this.requisicaoSelecionada)
     .then(() => {
       this.displayDialogMovimentacao = false;
-      Swal.fire(`Requisição ${!this.edit ? 'salvo' : 'atualizado'} com sucesso,'', 'success`)
+      Swal.fire(`Requisição ${!this.edit ? 'salva' : 'atualizada'} com sucesso`,'', 'success')
     })
     .catch((erro) => {
       this.displayDialogMovimentacao = true;

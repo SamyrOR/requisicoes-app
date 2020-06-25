@@ -86,7 +86,7 @@ export class RequisicaoComponent implements OnInit {
     this.requisicaoService.createOrUpdate(this.form.value)
       .then(() => {
         this.displayDialogRequisicao = false;
-        Swal.fire(`Departamento ${!this.edit ? 'salvo' : 'atualizado'} com sucesso.`, '','success' )
+        Swal.fire(`Requisição ${!this.edit ? 'salva' : 'atualizada'} com sucesso.`, '','success' )
       })
       .catch((erro) => {
         this.displayDialogRequisicao = false;
