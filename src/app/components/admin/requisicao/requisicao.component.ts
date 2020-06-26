@@ -118,8 +118,6 @@ export class RequisicaoComponent implements OnInit {
     this.displayDialogRequisicao = true;
     this.form.setValue(requisicao)
   }
-
- 
-
+  
 }
 
