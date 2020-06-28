@@ -9,28 +9,28 @@
     </button>
         <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" (click)="toggleNavbar()">
                     <a class="nav-link" routerLink="/admin/painel" href="#">
                         <i class="pi pi-home"></i>
                         Painel
                     </a>
                 </li>
 
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" (click)="toggleNavbar()">
                     <a class="nav-link" routerLink="/admin/funcionario" href="#">
                         <i class="pi pi-id-card"></i>
                         Funcionários
                     </a>
                 </li>
 
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" (click)="toggleNavbar()">
                     <a class="nav-link" routerLink="/admin/requisicao" href="#">
                         <i class="pi pi-inbox"></i>
                         Requisições
                     </a>
                 </li>
 
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" (click)="toggleNavbar()">
                     <a class="nav-link" routerLink="/admin/departamento" href="#">
                         <i class="pi pi-sitemap"></i>   
                         Departamentos
