@@ -6,6 +6,6 @@ import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 @NgModule({
   declarations: [],
   imports: [CommonModule, FormsModule, PrimeNGModule],
-  exports: [CommonModule, FormsModule, PrimeNGModule],
+  exports: [FormsModule, PrimeNGModule],
 })
 export class ComumModule {}

@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/public/login/login.component';
 import { MenuComponent } from './components/admin/menu/menu.component';
 
+const FirestoreSettingsToken = '';
 @NgModule({
   declarations: [AppComponent, LoginComponent, MenuComponent],
   imports: [

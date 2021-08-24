@@ -16,7 +16,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 
 const PRIMENG_MODULES = [
-  CommonModule,
   ButtonModule,
   FieldsetModule,
   InputMaskModule,
@@ -35,7 +34,7 @@ const PRIMENG_MODULES = [
 
 @NgModule({
   declarations: [],
-  imports: [PRIMENG_MODULES],
+  imports: [CommonModule, PRIMENG_MODULES],
   exports: [PRIMENG_MODULES],
 })
 export class PrimeNGModule {}
