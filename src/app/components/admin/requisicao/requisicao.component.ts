@@ -36,7 +36,6 @@ export class RequisicaoComponent implements OnInit {
     this.departamentos$ = this.departamentoService.list();
     this.configForm();
     this.recuperaFuncionario();
-    // this.filtraRequisicoes();
   }
 
   recuperaFuncionario() {
@@ -45,7 +44,6 @@ export class RequisicaoComponent implements OnInit {
         .getFuncionarioLogado(dados?.email ?? '')
         .subscribe((funcionarios) => {
           this.funcionarioLogado = funcionarios[0];
-          console.log(this.funcionarioLogado.email);
           this.filtraRequisicoes();
         });
     });

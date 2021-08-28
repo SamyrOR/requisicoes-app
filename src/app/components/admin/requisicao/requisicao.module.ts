@@ -7,6 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ComumModule } from 'src/app/modules/comum/comum.module';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MovimentacaoModule } from '../movimentacao/movimentacao.module';
+import { MovimentacaoComponent } from '../movimentacao/movimentacao.component';
 
 @NgModule({
   declarations: [RequisicaoComponent],

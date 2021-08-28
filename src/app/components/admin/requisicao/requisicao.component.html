@@ -106,4 +106,7 @@
   </div>
 </p-dialog>
 
-<app-movimentacao></app-movimentacao>
+<app-movimentacao
+  *ngIf="funcionarioLogado"
+  [funcionarioLogado]="this.funcionarioLogado"
+></app-movimentacao>

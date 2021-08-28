@@ -6,9 +6,10 @@ import { MovimentacaoComponent } from './movimentacao.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComumModule } from 'src/app/modules/comum/comum.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ListaComponent } from './lista/lista.component';
 
 @NgModule({
-  declarations: [MovimentacaoComponent],
+  declarations: [MovimentacaoComponent, ListaComponent],
   imports: [
     CommonModule,
     MovimentacaoRoutingModule,

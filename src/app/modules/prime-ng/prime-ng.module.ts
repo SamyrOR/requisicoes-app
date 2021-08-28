@@ -14,7 +14,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CalendarModule } from 'primeng/calendar';
 import { TabViewModule } from 'primeng/tabview';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-
+import { ToolbarModule } from 'primeng/toolbar';
 const PRIMENG_MODULES = [
   ButtonModule,
   FieldsetModule,
@@ -30,6 +30,7 @@ const PRIMENG_MODULES = [
   CalendarModule,
   TabViewModule,
   ToggleButtonModule,
+  ToolbarModule,
 ];
 
 @NgModule({
