@@ -23,6 +23,7 @@
   >
     <thead class="thead-dark">
       <tr>
+        <th class="text-center">Foto</th>
         <th class="text-center">Nome</th>
         <th class="text-center">Email</th>
         <th class="text-center">Departamento</th>
@@ -38,6 +39,14 @@
             | filterDepartamento: departamentoFiltro
         "
       >
+        <td class="text-center">
+          <img
+            [src]="funcionario.foto || '/assets/images/dummy.png'"
+            alt="Avatar"
+            class="img-fluid"
+            [style]="{ width: '3rem' }"
+          />
+        </td>
         <td class="text-center">{{ funcionario.nome }}</td>
         <td class="text-center">{{ funcionario.email }}</td>
         <td class="text-center">
@@ -67,7 +76,7 @@
 
 <p-dialog
   header="Dados	do	funcionário"
-  [style]="{ width: '80vw' }"
+  [style]="{ width: '50vw' }"
   [contentStyle]="{ overflow: 'visible' }"
   [(visible)]="displayDialogFuncionario"
   [responsive]="true"
@@ -96,21 +105,20 @@
         <label for="funcao">Função:</label>
         <input type="text" pInputText formControlName="funcao" />
       </div>
-      <!-- <div class="p-field p-col-12 p-md-6">
+      <div class="p-field p-col-12 p-md-6">
         <label for="foto">Foto:</label>
         <input
           type="file"
           #inputFile
           class="form-control"
-          (change
-          )="upload($event)"
+          (change)="upload($event)"
         />
         <progress
           style="width: 100%"
           max="100"
           [value]="uploadPercent | async"
         ></progress>
-      </div> -->
+      </div>
     </form>
   </div>
   <div

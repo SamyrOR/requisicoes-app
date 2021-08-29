@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AngularFireUploadTask,
+  AngularFireStorage,
+} from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Departamento } from 'src/app/models/departamento.model';
 import { Funcionario } from 'src/app/models/funcionario.model';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-funcionario',
@@ -13,6 +17,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./funcionario.component.css'],
 })
 export class FuncionarioComponent implements OnInit {
+  @ViewChild('inputFile', { static: false }) inputFile!: ElementRef;
+  uploadPercent!: Observable<number | undefined>;
+  downloadURL!: Observable<string>;
+  task!: AngularFireUploadTask;
+  complete!: boolean;
+
   funcionarios$!: Observable<Funcionario[]>;
   departamentos$!: Observable<Departamento[]>;
   departamentoFiltro!: string;
@@ -23,7 +33,8 @@ export class FuncionarioComponent implements OnInit {
   constructor(
     private funcionarioService: FuncionarioService,
     private departamentoService: DepartamentoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private storage: AngularFireStorage
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +51,7 @@ export class FuncionarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       funcao: [''],
       departamento: ['', Validators.required],
+      foto: [],
     });
   }
   add() {
@@ -91,5 +103,21 @@ export class FuncionarioComponent implements OnInit {
         });
       }
     });
+  }
+
+  async upload(event: any) {
+    this.complete = false;
+    const file = event.target.files[0];
+    const path = `funcionarios/${new Date().getTime().toString()}`;
+    const fileRef = this.storage.ref(path);
+    this.task = this.storage.upload(path, file);
+    this.task.then((up) => {
+      fileRef.getDownloadURL().subscribe((url) => {
+        this.complete = true;
+        this.form.patchValue({ foto: url });
+      });
+    });
+    this.uploadPercent = this.task.percentageChanges();
+    this.inputFile.nativeElement.value = '';
   }
 }

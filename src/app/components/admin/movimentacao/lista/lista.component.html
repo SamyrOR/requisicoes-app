@@ -51,7 +51,7 @@
 </p-dialog>
 <p-dialog
   header="Dados da Requisição"
-  [style]="{ width: '80vw' }"
+  [style]="{ width: '50vw' }"
   [contentStyle]="{ overflow: 'visible' }"
   [(visible)]="displayDialogMovimentacao"
   [responsive]="true"
@@ -76,6 +76,7 @@
           <textarea
             rows="5"
             cols="30"
+            [ngStyle]="{ width: '100%' }"
             pInputTextarea
             formControlName="descricao"
           ></textarea>
@@ -92,11 +93,11 @@
     >
       *Preenchimento Obrigatório
     </div>
-    <div class="p-toolbar-group-right">
+    <div class="p-toolbar-group-right btn__wrapper">
       <button
         [disabled]="!form.valid"
         type="button"
-        class="btn btn-primary"
+        class="btn btn-success"
         (click)="update()"
       >
         <i class="fas fa-check-circle"></i> {{ edit ? "Atualizar" : "Salvar" }}

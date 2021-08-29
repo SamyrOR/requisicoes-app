@@ -97,6 +97,7 @@ export class MovimentacaoComponent implements OnInit {
           '',
           'success'
         );
+        this.displayDialogMovimentacao = false;
       })
       .catch((erro) => {
         this.displayDialogMovimentacao = true;

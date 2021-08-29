@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/public/login/login.component';
+import { NotFoundComponent } from './components/public/not-found/not-found.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'admin/painel', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'admin/painel',
@@ -38,6 +39,7 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

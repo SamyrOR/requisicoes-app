@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/public/login/login.component';
 import { MenuComponent } from './components/admin/menu/menu.component';
+import { NotFoundComponent } from './components/public/not-found/not-found.component';
 
 const FirestoreSettingsToken = '';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MenuComponent],
+  declarations: [AppComponent, LoginComponent, MenuComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -77,6 +77,7 @@ export class ListaComponent implements OnInit {
           '',
           'success'
         );
+        this.onClose();
       })
       .catch((erro) => {
         this.displayDialogMovimentacao = true;
