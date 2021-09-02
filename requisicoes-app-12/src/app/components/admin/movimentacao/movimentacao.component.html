@@ -1,0 +1,137 @@
+<div class="container">
+  <h3>Requisições Solicitadas</h3>
+  <table class="table table-striped table-hover table-bordered col￾centered">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">Abertura</th>
+        <th class="text-center">Última atualização</th>
+        <th class="text-center">Departamento</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Movimentações</th>
+        <th class="text-center">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let requisicao of requisicoes$ | async">
+        <td class="text-center">
+          {{ requisicao.dataAbertura?.toDate() | date: "dd/MM/yyyy	HH:mm" }}
+        </td>
+        <td class="text-center">
+          {{
+            requisicao.ultimaAtualizacao?.seconds * 1000
+              | date: "dd/MM/yyyy	HH:mm"
+          }}
+        </td>
+        <td class="text-center">{{ requisicao.destino.nome }}</td>
+        <td class="text-center">{{ requisicao.status }}</td>
+        <td class="text-center">
+          <span class="badge badge-pill badge-secondary">
+            {{
+              !requisicao.movimentacoes?.length
+                ? "0"
+                : requisicao.movimentacoes?.length
+            }}
+          </span>
+        </td>
+        <td class="text-center">
+          <button type="button" (click)="add(requisicao)" class="btn btn-info">
+            <i class="fa fa-plus-circle"></i>
+          </button>
+          <button
+            type="button"
+            (click)="verMovimentacoes(requisicao)"
+            class="btn btn-success"
+          >
+            <i class="far fa-list-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p-dialog
+  header="Dados	da	Requisição"
+  [style]="{ width: '50vw' }"
+  [contentStyle]="{ overflow: 'visible' }"
+  [(visible)]="displayDialogMovimentacao"
+  [responsive]="true"
+  [modal]="true"
+>
+  <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
+    <div class="ui-grid-row mb-3">
+      <div class="ui-grid-col-4">
+        <label for="departamento">Solicitante:</label>
+      </div>
+      <div class="ui-grid-col-8 text-primary">
+        {{ requisicaoSelecionada?.solicitante?.nome }}
+      </div>
+    </div>
+    <div class="ui-grid-row mb-3">
+      <div class="ui-grid-col-4">
+        <label for="descricao">Solicitação:</label>
+      </div>
+      <div class="ui-grid-col-8">
+        <textarea
+          rows="5"
+          cols="95"
+          disabled
+          pInputTextarea
+          [value]="requisicaoSelecionada?.descricao"
+        ></textarea>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="ui-grid-row mb-3">
+        <div class="ui-grid-col-4">
+          <label for="departamento">Status*:</label>
+        </div>
+        <div class="ui-grid-col-8">
+          <ng-select [items]="listaStatus" formControlName="status">
+          </ng-select>
+        </div>
+      </div>
+      <div class="ui-grid-row mb-3">
+        <div class="ui-grid-col-4">
+          <label for="descricao">Descricao*:</label>
+        </div>
+        <div class="ui-grid-col-8">
+          <textarea
+            rows="5"
+            cols="95"
+            pInputTextarea
+            formControlName="descricao"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p-footer>
+    <div
+      *ngIf="
+        form.controls['status'].errors || form.controls['descricao'].errors
+      "
+      class="text-warning text-left"
+    >
+      *Preenchimento Obrigatório
+    </div>
+    <div class="ui-dialog-buttonpane btn__wrapper">
+      <button
+        [disabled]="!form.valid"
+        type="button"
+        class="btn btn-success"
+        (click)="save()"
+      >
+        <i class="fas fa-check-circle"></i> {{ edit ? "Atualizar" : "Salvar" }}
+      </button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<app-lista
+  [displayDialogMovimentacoes]="displayDialogMovimentacoes"
+  [movimentacoes]="movimentacoes"
+  [requisicaoSelecionada]="requisicaoSelecionada"
+  [funcionarioLogado]="funcionarioLogado"
+  (displayChange)="onDialogClose($event)"
+></app-lista>
