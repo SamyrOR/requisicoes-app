@@ -6,6 +6,7 @@ Developed a complete CRUD using angular integrated with Firebase for auth and st
 
 <p align="center"> <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/SamyrOR/requisicoes-app">
 <img alt="GitHub language count" src="https://img.shields.io/github/repo-size/SamyrOR/requisicoes-app">
+		<img  alt="GitHub last commit"  src="https://img.shields.io/github/last-commit/SamyrOR/requisicoes-app">
 </p>
 <h4 align="center">
 	🚧 Done 🚀 🚧
