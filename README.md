@@ -76,7 +76,7 @@ Back at 2020 i bought this book and make the project with Angular version 8, now
 
 ## 🚀 Live demo
 
-You can see how its work for real in [requisicoes-app12.web.app](requisicoes-app12.web.app).
+You can see how its work for real in [requisicoes-app12.web.app](https://requisicoes-app12.web.app/login).
 
 Use as user **teste@teste.com** and **Teste@123** as password to log in.
 
